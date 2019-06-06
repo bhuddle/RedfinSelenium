@@ -1,12 +1,13 @@
 
+# Locators based on XPATH for selenium
 class Locator(object):
-    #Home Page
+    #Home Page locators
     login = "//button[contains(.,'Log In')]"
     sign_up = "//span[contains(.,'Sign Up')]"
     search_button = "//button[@value='']"
     search_bar = "//input[@id='search-box-input']"
     
-    #Search page
+    #Search page locators
     filters = "//*[@id='wideSidepaneFilterButtonContainer']/button"
     home_type = "//*[@id='propertyTypeFilter']/div[1]/button[1]"
     add_bath = '//*[@id="filterContent"]/div/div[1]/div[1]/div[2]/div[2]/span/span/span[3]'

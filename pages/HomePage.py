@@ -1,12 +1,12 @@
 from Locators import Locator
 from selenium import webdriver
 from time import sleep
-
 from selenium.webdriver.common.by import By
 
-
+# Home page of redfin
 class HomePage(object):
 
+    # inintialize elements that are visible and set driver
     def __init__(self, driver):
         #setting driver
         self.browser = driver
@@ -18,32 +18,38 @@ class HomePage(object):
         self.search_bar = driver.find_element(By.XPATH, Locator.search_bar)
         
     
+    # Returns the login element
     def getLogin(self):
         return self.login
         
-        
+    
+    # Returns the sign up element
     def getSignUp(self):
         return self.sign_up
         
         
+    # Returns the search button element
     def getSearchButton(self):
         return self.search_button
         
-        
+    
+    # Returns the search bar element
     def getSearchBar(self):
         return self.search_bar
     
     
+    # Clicks the login button
     def getLoginPage(self):
         # Not implementing past a click
         self.login.click()
     
     
+    # Clicks the sign up button
     def getSignUpPage(self):
-        # Not implementing past a click
         self.sign_up.click()
         
         
+    # Searches based on zip i.e. '97123'    
     def setSearchZipResult(self, zip):
         self.search_bar.clear()
         self.search_bar.send_keys(zip)
@@ -51,19 +57,10 @@ class HomePage(object):
         return self.browser
         
     
+    # Searches based on city entered
+    # City required 'Hillsboro OR' to avoid duplicates
     def setSearchCityResult(self, city):
         self.search_bar.clear()
         self.search_bar.send_keys(city)
         self.search_button.click()
         return self.browser
-
-
-        
-"""
-browser = webdriver.Chrome('C:\Chromedriver\chromedriver.exe')
-browser.get('http://redfin.com/')
-browser.set_page_load_timeout(20)
-home = HomePage(browser)
-home.getSearchZipResult('97123')
-sleep(2)
-home.clickSearchButton()"""
